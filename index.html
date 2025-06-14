@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتقى - عين واعية تختار لك الأفضل</title>
+    <meta name="description" content="المنتقى يقدم لك ولعائلتك باقة محتوى أسبوعية منتقاة بعناية فائقة، آمنة ومفيدة، تشمل فيديوهات للأطفال ومقالات تثري الفكر. استثمر في المعرفة بذكاء.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB3GP20DQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QHB3GP20DQ');
+    </script>
+    <style>
+        /* تم تعديل لون إشارة الضرب الحمراء إلى الرمادي بناءً على الطلب الأخير.
+        */
+        :root {
+            --primary-color: #2E8B57; 
+            --primary-color-light: #3CB371; /* درجة أفتح للعناوين الفرعية */
+            --success-color: #198754; 
+            --success-color-hover: #157347;
+            --text-color: #343a40; 
+            --text-color-light: #6c757d; 
+            --body-bg: #f8f9fa; 
+            --white-color: #ffffff;
+            --border-color: #dee2e6;
+            --font-main: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            line-height: 1.7; 
+        }
+        .container {
+            max-width: 1024px;
+        }
+        
+        h1, h2 {
+            font-family: var(--font-main);
+            color: var(--primary-color);
+            font-weight: 700; 
+        }
+        h3 {
+            font-family: var(--font-main);
+            color: var(--primary-color-light); /* استخدام اللون الأفتح للعناوين الفرعية */
+            font-weight: 500; 
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            display: inline-block; 
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .color-persuasion h2,
+        .color-team h2,
+        .color-pricing .pricing-section-title,
+        header h1 {
+            color: var(--primary-color) !important;
+        }
+        
+        .card-icon {
+            font-size: 2.2rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--primary-color);
+        }
+
+        .card {
+            background-color: var(--white-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border: 1px solid #eef2f7; 
+        }
+        
+        .persuasion-ramzy-text { 
+            color: var(--primary-color);
+        }
+        .persuasion-icon { 
+            margin-left: 8px;
+            font-size: 0.9rem; 
+            color: var(--primary-color-light);
+        }
+        .color-persuasion h2 .fa-heart { 
+            font-size: 1.3rem; 
+            vertical-align: middle; 
+        }
+
+        .subscribe-button, .pricing-button {
+            display: inline-block;
+            background-color: var(--success-color);
+            color: var(--white-color) !important; 
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .subscribe-button:hover:not([disabled]), .pricing-button:hover:not([disabled]) {
+            background-color: var(--success-color-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .subscribe-button:active:not([disabled]), .pricing-button:active:not([disabled]) {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .subscribe-button[disabled], .pricing-button[disabled] {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .pricing-button {
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            margin-top: auto;
+        }
+
+        /* إعادة تصميم قسم الأسئلة الشائعة إلى الشكل الأصلي */
+        .faq-accordion details {
+            background-color: #fff;
+            border-radius: 8px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0; 
+            padding: 15px;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+        }
+        .faq-accordion details:not(:last-child) { 
+             margin-bottom: 10px;
+        }
+        .faq-accordion details:last-child {
+            border-bottom: none;
+        }
+        .faq-accordion details:hover {
+            background-color: #f8f8f8;
+        }
+        .faq-accordion summary {
+            font-weight: 700;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .faq-accordion summary::-webkit-details-marker { display: none; }
+        .faq-accordion summary::before { display: none; } 
+        .faq-accordion summary .faq-icon { 
+            order: -1;
+            margin-right: 10px;
+            color: #555;
+            font-size: 0.75em; 
+            transition: transform 0.2s ease;
+            vertical-align: middle;
+        }
+        .faq-accordion details[open] summary .faq-icon { transform: rotate(180deg); }
+        .faq-accordion details[open] summary { margin-bottom: 10px; }
+        .faq-accordion .faq-answer {
+            color: #555;
+            padding-top: 15px;
+            border-top: none;
+            text-align: center;
+        }
+        .faq-accordion summary span {
+            text-align: center; 
+            flex-grow: 1;
+        }
+
+
+        .pricing-card {
+            background-color: var(--white-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eef2f7;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .pricing-title { 
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color); 
+            margin-bottom: 1rem;
+        }
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success-color);
+            margin-bottom: 0.5rem;
+        }
+        .pricing-price .currency {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-color-light);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            color: var(--text-color);
+            text-align: right;
+        }
+        .pricing-features li {
+            margin-bottom: 0.75rem;
+            display: flex; 
+            align-items: center;
+        }
+        .pricing-features li i { 
+            margin-left: 8px; 
+            font-size: 1rem; 
+        }
+        .pricing-features li .fa-check-circle {
+            color: var(--success-color); 
+        }
+        /* تم تغيير لون علامة الضرب إلى الرمادي */
+        .pricing-features li .fa-times-circle {
+            color: var(--text-color-light); 
+        }
+
+        .trial-period-header-tag { 
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: var(--text-color-light);
+            position: absolute;
+            top: 50%;
+            right: 100%; 
+            margin-right: 8px; 
+            transform: translateY(-50%);
+            white-space: nowrap; 
+        }
+        
+        .text-gray-500 { color: var(--text-color-light) !important; }
+        .text-gray-600 { color: var(--text-color-light) !important; }
+        .text-gray-700 { color: var(--text-color) !important; }
+
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="container mx-auto">
+
+        <header class="text-center mb-16 p-8 bg-white rounded-lg shadow-md">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">المنتقى</h1>
+            <p class="text-xl md:text-2xl text-gray-600">لأن المعرفة لا تُترك للصدفة</p>
+            <p class="text-lg mt-6 text-gray-700 max-w-2xl mx-auto">
+                نقدم لك محتوى أسبوعيًا منتقى بعناية فائقة من بحر المصادر، في باقة ممتعة وآمنة تحفظ وقتك وتريح بالك.
+            </p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <section class="card md:col-span-2 color-vision"> 
+                <div class="card-icon"><i class="fas fa-compass fa-fw"></i></div> 
+                <h2 class="text-center">رؤيتنا</h2> 
+                <p class="text-lg text-gray-700">
+                    أن يصبح المنتقى مصدر محتوى موثوقًا للأسر المسلمة، والعقول الباحثة عن محتوى حقيقي، وسط الفوضى والتفاهة والأخطار الرقمية.
+                </p>
+            </section>
+
+            <section class="card md:col-span-2 color-why"> 
+                <div class="card-icon"><i class="fas fa-check-circle fa-fw"></i></div> 
+                <h2 class="text-center">لماذا تختار المنتقى؟</h2> 
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+                    <div class="card p-6 text-center">
+                        <h3>محتوى مختار يدويًا</h3>
+                        <p class="text-gray-700">غربلة دقيقة من فريق تحرير متخصص.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>توفير الوقت</h3>
+                        <p class="text-gray-700">لا حاجة للبحث، فقط تصفّح المختار لك.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>تنوع هادف</h3>
+                        <p class="text-gray-700">من التربية والتقنية، إلى الثقافة والتسلية.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>عادة أسبوعية</h3>
+                        <p class="text-gray-700">لأن النموّ المعرفي لا يكون دفعة واحدة.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card md:col-span-2 color-who"> 
+                <div class="card-icon"><i class="fas fa-users fa-fw"></i></div>
+                <h2 class="text-center">المنتقى... لمن؟</h2> 
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                    <div class="card p-6 text-center">
+                        <h3>للآباء والأمهات</h3>
+                        <p class="text-gray-700">الباحثون عن محتوى تربوي هادف يثري حياتهم وحياة أبنائهم.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>للعائلات</h3>
+                        <p class="text-gray-700">التي تسعى لوقت مشترك مفيد وممتع يساهم في تربية أفضل.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>للأبناء</h3>
+                        <p class="text-gray-700">الذين يحتاجون إلى محتوى موجه بعناية.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card md:col-span-2 color-kids"> 
+                <div class="card-icon"><i class="fas fa-mobile-alt fa-fw"></i></div>
+                <h2 class="text-center">تطبيق المنتقى للأطفال</h2> 
+                <p class="text-lg text-gray-700 text-center mb-2">نقدم لك محتوى يطمئن له قلبك:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                    <div class="card p-6 text-center">
+                        <h3>محتوى آمن 100%</h3>
+                        <p class="text-gray-700">فيديوهات منتقاة بعناية فائقة ومعايير صارمة بما يناسب عقول صغارنا وقلوبهم.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>راحة بال للوالدين</h3>
+                        <p class="text-gray-700">يستمتع الأطفال بمشاهدة محتوى مفيد دون رقابة مستمرة.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>تنمية شاملة</h3>
+                        <p class="text-gray-700">فيديوهات تغطي مجالات المعرفة المختلفة.</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-700 font-semibold text-center mt-6">سنطلقه لاحقا بإذن الله...</p>
+            </section>
+
+            <section class="card md:col-span-2 color-examples"> 
+                <div class="card-icon"><i class="fas fa-gift fa-fw"></i></div>
+                <h2 class="text-center">ماذا ينتظرك في الباقة الأسبوعية؟</h2> 
+                <p class="text-lg text-gray-700 text-center mb-2">قيمة المحتوى تكمن في جودته وفائدته:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
+                    <div class="card p-6 text-center">
+                        <h3>كنوز الكتب</h3>
+                        <p class="text-gray-700">أجزاء مختارة أو ملخصات لأهم الكتب.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>مقالات تثري الفكر</h3>
+                        <p class="text-gray-700">قراءات عميقة منتقاة بعناية.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>فيديو</h3>
+                        <p class="text-gray-700">محتوى مرئي هادف وآمن لك ولأطفالك.</p>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <h3>حقائق وأرقام</h3>
+                        <p class="text-gray-700">دراسات وإحصائيات مهمة.</p>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-700 text-center mt-6">المجالات: المواد الشرعية، التربية، عالم الأبناء (ترفيه وتعليم)، التقنية، التاريخ، العلوم، المهارات، وغيرها...</p>
+            </section>
+
+            <section class="card md:col-span-2 text-center color-persuasion">
+                <h2 class="color-persuasion"><i class="fas fa-heart"></i> استثمر في ما يبقى… اشترِ راحة البال.</h2>
+                <div class="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+                    <p class="mb-3 text-right flex items-center justify-center sm:justify-start">
+                        <i class="fas fa-shield-alt persuasion-icon ml-2"></i>
+                        <span>ستجد من يختار لك كما يختار لنفسه، ومن ينتقي لأطفالك كما ينتقي لأطفاله.</span>
+                    </p>
+                    <p class="mb-6 text-right flex items-center justify-center sm:justify-start">
+                        <i class="fas fa-envelope-open-text persuasion-icon ml-2"></i>
+                        <span>ستجد من يقول كل أسبوع: تفضل، هذه ثمرة بحثنا… وهذا ما يستحق وقتك.</span>
+                    </p>
+                    <p class="mb-3 font-semibold persuasion-ramzy-text text-center"> 
+                        باشتراك رمزي
+                    </p>
+                    <p class="mb-6 text-right">
+                        وثمن ذلك أقل بكثير مما قد تنفقه على أشياء استهلاكية تزول ولا تبقى.
+                    </p>
+                </div>
+            </section>
+
+            <section class="card md:col-span-2 text-center color-team">
+                <div class="card-icon"><i class="fas fa-users-cog fa-fw"></i></div>
+                <h2 class="color-team">من نحن؟ فريق المنتقى</h2>
+                <p class="text-lg text-gray-700">
+                    نحن آباء وأمهات، خبراء في مجال المحتوى والفكر والتربية، نشاركك الهم نفسه: أن نحمي أوقاتنا من التشتت، ونقدم لأسرنا محتوى يستحق أن يُستهلك.
+                </p>
+            </section>
+
+            <section class="card md:col-span-2 color-faq">
+                <div class="card-icon"><i class="fas fa-comments fa-fw"></i></div>
+                <h2 class="text-center">أسئلة شائعة</h2> 
+                <div class="mt-4 space-y-0 faq-accordion">
+                    <details>
+                        <summary class="faq-question text-lg font-semibold">
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                            <span>كيف يصلني المحتوى؟</span>
+                        </summary>
+                        <div class="faq-answer text-gray-700">في الوقت الحالي سيصلك المحتوى عبر تطبيق تيليجرام على الجوال.</div>
+                    </details>
+                    <details> 
+                        <summary class="faq-question text-lg font-semibold">
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                            <span>ما هي وسائل الدفع المتاحة؟</span>
+                        </summary>
+                        <div class="faq-answer text-gray-700">تواصل معنا عبر زر الاشتراك لإخبارك بطرق الدفع حيث أنها تتغير.</div>
+                    </details>
+                    <details>
+                        <summary class="faq-question text-lg font-semibold">
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                            <span>لماذا يرسل المحتوى بشكل أسبوعي؟</span>
+                        </summary>
+                        <div class="faq-answer text-gray-700">الإرسال الأسبوعي يهدف إلى إتاحة الوقت الكافي لاستهلاك المحتوى بعمق، وتثبيت المعلومات، والتذكير المستمر بها، مما يساهم في بناء معرفي تراكمي ومستدام.</div>
+                    </details>
+                    <details>
+                        <summary class="faq-question text-lg font-semibold">
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                            <span>هل محتوى المنتقى مشابه لمحتوى الشبكات الاجتماعية السريع؟</span>
+                        </summary>
+                        <div class="faq-answer text-gray-700">لا، "المنتقى" يركز على تقديم محتوى عميق ومُثرٍ للفكر، بعيدًا عن الاستهلاك السريع الذي يشتت الانتباه. هدفنا بناء المعرفة وليس مجرد التصفح العابر.</div>
+                    </details>
+                    <details>
+                        <summary class="faq-question text-lg font-semibold">
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                            <span>هل تتناول الباقة الأسبوعية موضوعا واحدا أم عدة مواضيع مختلفة؟</span>
+                        </summary>
+                        <div class="faq-answer text-gray-700">تتنوع مواضيعنا؛ فأحيانًا تكون متفرقة لتشمل جوانب معرفية مختلفة، وأحيانًا أخرى نركز على فكرة واحدة ونغطيها من عدة جوانب لتقديم فهم شامل وعميق لها. </div>
+                    </details>
+                    
+                </div>
+            </section>
+
+            <section class="md:col-span-2 mt-8 color-pricing">
+                <div class="card-icon text-center"><i class="fas fa-tags fa-fw"></i></div>
+                <div class="text-center mb-8"> 
+                    <h2 class="pricing-section-title" style="margin-bottom: 0.25rem; display: inline-block; position: relative;">
+                        باقات الاشتراك
+                        <span class="trial-period-header-tag">(فترة تجريبية)</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="pricing-card">
+                        <h3 class="pricing-title">الباقة الأسبوعية</h3> 
+                        <p class="pricing-price">10,000 <span class="currency">ل.س/شهريًا</span></p> 
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i><span>خدمة المنتقى الأسبوعية محتوى مفيد لشهر كامل</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>يصلك المحتوى عبر تطبيق تلجرام</span></li>
+                            <li><i class="fas fa-times-circle"></i><span class="text-gray-500">تطبيق المنتقى للأطفال (غير مشمول)</span></li>
+                        </ul>
+                        <a href="https://wa.me/+963991242" class="pricing-button" target="_blank">اشترك الآن</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 class="pricing-title">باقة العائلة</h3>
+                        <p class="pricing-price">25,000 <span class="currency">ل.س/شهريًا</span></p> 
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check-circle"></i><span>خدمة المنتقى الأسبوعية محتوى مفيد لشهر كامل</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>يصلك المحتوى عبر تطبيق تلجرام</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>تطبيق المنتقى للأطفال (قريبًا)</span></li>
+                        </ul>
+                        <button class="pricing-button" disabled>قريبًا</button>
+                    </div>
+                </div>
+            </section>
+            </main>
+
+        <footer class="text-center text-gray-500 mt-12 p-4">
+            <p>&copy; 2025 المنتقى. جميع الحقوق محفوظة.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
